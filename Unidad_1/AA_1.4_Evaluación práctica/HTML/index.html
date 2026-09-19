@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+
+  <meta charset="UTF-8">
+  <title>Sistema Solar</title>
+
+  <style>
+    body {
+      display: grid;
+      place-items: center;
+      height: 100vh;
+      background: #111;
+      margin: 0;
+    }
+  </style>
+</head>
+
+<body>
+<canvas id="c" width="600" height="600"></canvas>
+
+<script>
+    const x = document.getElementById('c').getContext('2d');
+
+    // parte solo del fondo morado
+    x.fillStyle = '#260940';
+    x.fillRect(0, 0, 600, 600);
+
+    // Órbitas
+    x.strokeStyle = '#d8cce2';
+    x.lineWidth = 1;
+    x.setLineDash([2, 4]);
+    [92, 132, 172, 216, 264, 320, 376, 432].forEach(r => {
+        x.beginPath();
+        x.ellipse(0, 304, r, r * 0.9, 0, -1.57, 1.57);
+        x.stroke();
+    });
+
+    x.setLineDash([]);
+
+    // como dibuje el sol
+    x.fillStyle = '#FF9900';
+    x.beginPath();
+    x.arc(16, 304, 116, 0, 7);
+    x.fill();
+    x.fillStyle = '#FFFF00';
+    x.beginPath();
+    x.ellipse(16, 304, 100, 108, 0, 0, 7);
+    x.fill();
+
+    // llaves para hacer los Planetas
+    [
+        [150, 262, 8, '#C9A77A', 'Mercurio'],
+        [192, 314, 10, '#F3A7B9', 'Venus'],
+        [231, 374, 9, '#E84B35', 'Marte'],
+        [270, 296, 12, '#32C778', 'Tierra'],
+        [327, 195, 20, '#F39C12', 'Júpiter'],
+        [358, 402, 16, '#F0DF83', 'Saturno', 1],
+        [400, 218, 14, '#16DCEB', 'Uranio'],
+        [436, 409, 14, '#386BE5', 'Neptuno']
+    ].forEach(([px, py, pr, pc, pn, ring]) => {
+
+        // Anillo de Saturno
+        if (ring) {
+            x.strokeStyle = '#E8D47C';
+            x.lineWidth = 2;
+            x.beginPath();
+            x.ellipse(px, py, 25, 7, -0.35, 0, 7);
+            x.stroke();
+        }
+
+        // Planeta
+        x.fillStyle = pc;
+        x.beginPath();
+        x.arc(px, py, pr, 0, 7);
+        x.fill();
+
+        // Nombre del planeta
+        x.fillStyle = '#FFF';
+        x.font = '12px sans-serif';
+        x.textAlign = 'center';
+        x.fillText(pn, px, py + pr + 14);
+    });
+
+</script>
+</body>
+</html>

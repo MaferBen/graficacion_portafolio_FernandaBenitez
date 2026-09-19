@@ -1,0 +1,135 @@
+body {
+  background-color: #111;
+  font-family: sans-serif;
+}
+
+/* Lienzoo morado */
+.espacio {
+  width: 600px;
+  height: 600px;
+  background-color: #2b0b3f;
+  position: relative;
+  margin: 20px auto;
+  overflow: hidden;
+}
+
+/* Sol en el borde izquierdo */
+.sol {
+  width: 200px;
+  height: 200px;
+  background-color: yellow;
+  border: 15px solid orange;
+  border-radius: 50%;
+  position: absolute;
+  top: 200px;
+  left: -100px;
+}
+
+/* Estilo general para las órbitas */
+.orbita {
+  border: 1px dashed white;
+  border-radius: 50%;
+  position: absolute;
+  top: 300px;
+  left: 0px;
+  transform: translate(-50%, -50%);
+}
+
+/* Tamaños de cada órbita */
+.o1 { width: 300px; height: 300px; }
+.o2 { width: 380px; height: 380px; }
+.o3 { width: 460px; height: 460px; }
+.o4 { width: 540px; height: 540px; }
+.o5 { width: 680px; height: 680px; }
+.o6 { width: 820px; height: 820px; }
+.o7 { width: 940px; height: 940px; }
+.o8 { width: 1060px; height: 1060px; }
+
+/* Configuración de los nombres y planetas */
+.planeta {
+  position: absolute;
+  text-align: center;
+}
+
+.planeta p {
+  color: white;
+  font-size: 11px;
+  margin: 2px 0 0 0;
+}
+
+/* Colores y posiciones de cada planeta */
+.p-mercurio { top: 250px; left: 140px; }
+.circulo-mercurio {
+  width: 15px;
+  height: 15px;
+  background-color: #d2b48c;
+  border-radius: 50%;
+}
+
+.p-venus { top: 300px; left: 180px; }
+.circulo-venus {
+  width: 20px;
+  height: 20px;
+  background-color: #ffb6c1;
+  border-radius: 50%;
+}
+
+.p-tierra { top: 280px; left: 255px; }
+.circulo-tierra {
+  width: 24px;
+  height: 24px;
+  background-color: #2ecc71;
+  border-radius: 50%;
+}
+
+.p-marte { top: 360px; left: 220px; }
+.circulo-marte {
+  width: 18px;
+  height: 18px;
+  background-color: #e74c3c;
+  border-radius: 50%;
+}
+
+.p-jupiter { top: 170px; left: 305px; }
+.circulo-jupiter {
+  width: 40px;
+  height: 40px;
+  background-color: #f39c12;
+  border-radius: 50%;
+}
+
+.p-saturno { top: 380px; left: 340px; }
+.circulo-saturno {
+  width: 32px;
+  height: 32px;
+  background-color: #f0e68c;
+  border-radius: 50%;
+  position: relative;
+}
+
+.anillo {
+  width: 48px;
+  height: 10px;
+  border: 2px solid #f0e68c;
+  border-radius: 50%;
+  position: absolute;
+  top: 9px;
+  left: -10px;
+  transform: rotate(-20deg);
+}
+
+.p-urano { top: 200px; left: 385px; }
+.circulo-urano {
+  width: 26px;
+  height: 26px;
+  background-color: #00ffff;
+  border-radius: 50%;
+}
+
+.p-neptuno { top: 390px; left: 420px; }
+.circulo-neptuno {
+  width: 26px;
+  height: 26px;
+  background-color: #4169e1;
+  border-radius: 50%;
+}

@@ -1,6 +1,5 @@
 
-import * as THREE from 'three';
-import './style.css';
+import * as THREE from 'https://unpkg.com/three@0.160.0/build/three.module.js';
 
 // Crea la escena
 const escena = new THREE.Scene();

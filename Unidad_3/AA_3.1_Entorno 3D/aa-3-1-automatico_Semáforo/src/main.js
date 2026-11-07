@@ -1,6 +1,4 @@
-
-import * as THREE from 'three';
-import './style.css';
+import * as THREE from 'https://unpkg.com/three@0.160.0/build/three.module.js';
 
 // Crea la escena
 const escena = new THREE.Scene();
@@ -23,16 +21,15 @@ document.body.appendChild(renderizador.domElement);
 // Crea un cubo
 
 // Define la forma del objeto: unidades de ancho, alto y profundidad.
-const geometria = new THREE.BoxGeometry(1.5, 4.2, 0.8);
+const geometria = new THREE.BoxGeometry(1.8, 4.2, 1.4);
                                     // x,   y,   z
 
 // Define cómo se ve la superficie. El color hexadecimal.
 const material = new THREE.MeshStandardMaterial({
-    color: 0x252535,
-    metalness: 0.4,
-    roughness: 0.5
+    color: 0x111115, // Color del cubo 0x######
+    metalness: 0.8,
+    roughness: 0.2
 });
-                                       // Color del cubo 0x######
 
 // Une la forma y el material para crear un objeto visible en la escena.
 const cubo = new THREE.Mesh(geometria, material);
@@ -49,38 +46,47 @@ const geometriaEsfera = new THREE.SphereGeometry(0.60, 32, 32);
 const esferaRoja = new THREE.Mesh(
     geometriaEsfera,
     new THREE.MeshStandardMaterial({
-        color: 0xff0000
+        color: 0xff0000,
+        emissive: 0xff0000,
+        emissiveIntensity: 0.5,
+        roughness: 0.3
     })
 );
 
-esferaRoja.position.y = 1.2; // Posición de la esfera
+esferaRoja.position.set(0, 1.2, 0.73); // Posición de la esfera
 escena.add(esferaRoja);
 
 // Crear esfera amarilla
 const esferaAmarilla = new THREE.Mesh(
     geometriaEsfera,
     new THREE.MeshStandardMaterial({
-        color: 0xffff00
+        color: 0xffff00,
+        emissive: 0xff0000,
+        emissiveIntensity: 0.5,
+        roughness: 0.3
     })
 );
 
-esferaAmarilla.position.y = 0; // Posición de la esfera
+esferaAmarilla.position.set(0, 0, 0.73); // Posición de la esfera
 escena.add(esferaAmarilla);
 
 // Crear esfera verde
 const esferaVerde = new THREE.Mesh(
     geometriaEsfera,
     new THREE.MeshStandardMaterial({
-        color: 0x00ff00
+        color: 0x00ff00,
+        emissive: 0xff0000,
+        emissiveIntensity: 0.5,
+        roughness: 0.3
     })
 );
 
-esferaVerde.position.y = -1.2; // Posición de la esfera
+esferaVerde.position.set(0, -1.2, 0.73); // Posición de la esfera
 escena.add(esferaVerde);
 
 // Agregar iluminación
-const luz = new THREE.DirectionalLight(0xffffff, 3);
-luz.position.set(2, 3, 4);
+const luz = new THREE.DirectionalLight(0xffffff, 2.5);
+luz.position.set(3, 4, 5);
 escena.add(luz);
 
 const luzAmbiente = new THREE.AmbientLight(0xffffff, 0.5);
